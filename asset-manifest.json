@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/imbuements-calculator/static/css/main.a433eed1.css",
-    "main.js": "/imbuements-calculator/static/js/main.18bcaac0.js",
+    "main.css": "/imbuements-calculator/static/css/main.b3562286.css",
+    "main.js": "/imbuements-calculator/static/js/main.6ff4f60a.js",
     "index.html": "/imbuements-calculator/index.html",
-    "main.a433eed1.css.map": "/imbuements-calculator/static/css/main.a433eed1.css.map",
-    "main.18bcaac0.js.map": "/imbuements-calculator/static/js/main.18bcaac0.js.map"
+    "main.b3562286.css.map": "/imbuements-calculator/static/css/main.b3562286.css.map",
+    "main.6ff4f60a.js.map": "/imbuements-calculator/static/js/main.6ff4f60a.js.map"
   },
   "entrypoints": [
-    "static/css/main.a433eed1.css",
-    "static/js/main.18bcaac0.js"
+    "static/css/main.b3562286.css",
+    "static/js/main.6ff4f60a.js"
   ]
 }
