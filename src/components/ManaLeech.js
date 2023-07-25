@@ -17,9 +17,7 @@ const LifeLeech = () => {
 
   const calculateGoldTokenTotal = () => {
     const parsedGoldTokenValue = parseFloat(goldTokenValue);
-    return isNaN(parsedGoldTokenValue)
-      ? ''
-      : parsedGoldTokenValue * 18 + 450000;
+    return isNaN(parsedGoldTokenValue) ? '' : parsedGoldTokenValue * 6 + 450000;
   };
 
   const calculateItemsTotal = () => {
