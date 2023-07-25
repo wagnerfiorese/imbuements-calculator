@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/imbuements-calculator" element={<Home />} />
         <Route exact path="/life-leech" element={<LifeLeech />} />
         <Route exact path="/mana-leech" element={<ManaLeech />} />
         <Route exact path="/crit" element={<Crit />} />

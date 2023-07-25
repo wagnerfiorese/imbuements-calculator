@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import GoldToken from '../images/gold-token.gif';
+import RopeBelt from '../images/rope-belt.gif';
+import SilencerClaws from '../images/silencer-claws.gif';
+import GrimeleechWings from '../images/grimeleech-wings.gif';
 
 const LifeLeech = () => {
   const [goldTokenValue, setGoldTokenValue] = useState('');
@@ -28,7 +32,7 @@ const LifeLeech = () => {
       : parsedRopeBeltValue * 25;
     const totalSilencerClawsValue = isNaN(parsedSilencerClawsValue)
       ? 0
-      : parsedSilencerClawsValue * 15;
+      : parsedSilencerClawsValue * 25;
     const totalGrimeleechWingsValue = isNaN(parsedGrimeleechWingsValue)
       ? 0
       : parsedGrimeleechWingsValue * 5;
@@ -45,7 +49,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/gold-token.gif"
+            src={GoldToken}
             alt="Gold Token"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -61,7 +65,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/rope-belt.gif"
+            src={RopeBelt}
             alt="Rope Belt"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -77,7 +81,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/silencer-claws.gif"
+            src={SilencerClaws}
             alt="Silencer Claws"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -93,7 +97,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/grimeleech-wings.gif"
+            src={GrimeleechWings}
             alt="Grimeleech Wings"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -109,7 +113,7 @@ const LifeLeech = () => {
         <p>
           Valor total usando{' '}
           <img
-            src="/images/gold-token.gif"
+            src={GoldToken}
             alt="Gold Token"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -123,7 +127,7 @@ const LifeLeech = () => {
         </p>
       </div>
       <ul>
-        <Link to="/">Voltar para página inicial</Link>
+        <Link to="/imbuements-calculator">Voltar para página inicial</Link>
         <br></br>
         <Link to="/life-leech">Life Leech</Link>
         <br></br>

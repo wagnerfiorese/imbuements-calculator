@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LifeLeech from '../images/life-leech.gif';
+import ManaLeech from '../images/mana-leech.gif';
+import Crit from '../images/crit.gif';
 
 const Home = () => {
   return (
@@ -9,7 +12,7 @@ const Home = () => {
         <li>
           <Link to="/life-leech">
             <img
-              src="/images/life-leech.gif"
+              src={LifeLeech}
               alt="Life Leech"
               style={{ verticalAlign: 'middle', marginRight: '5px' }}
             />
@@ -20,7 +23,7 @@ const Home = () => {
         <li>
           <Link to="/mana-leech">
             <img
-              src="/images/mana-leech.gif"
+              src={ManaLeech}
               alt="Mana Leech"
               style={{ verticalAlign: 'middle', marginRight: '5px' }}
             />
@@ -31,7 +34,7 @@ const Home = () => {
         <li>
           <Link to="/crit">
             <img
-              src="/images/crit.gif"
+              src={Crit}
               alt="Crit"
               style={{ verticalAlign: 'middle', marginRight: '5px' }}
             />

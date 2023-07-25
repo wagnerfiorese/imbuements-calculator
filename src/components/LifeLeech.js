@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import GoldToken from '../images/gold-token.gif';
+import VampireTeeth from '../images/vampire-teeth.gif';
+import BloodyPincers from '../images/bloody-pincers.gif';
+import DeadBrain from '../images/piece-of-dead-brain.gif';
 
 const LifeLeech = () => {
   const [goldTokenValue, setGoldTokenValue] = useState('');
@@ -45,7 +49,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/gold-token.gif"
+            src={GoldToken}
             alt="Gold Token"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -61,7 +65,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/vampire-teeth.gif"
+            src={VampireTeeth}
             alt="Vampire Teeth"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -77,7 +81,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/bloody-pincers.gif"
+            src={BloodyPincers}
             alt="Bloody Pincers"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -93,7 +97,7 @@ const LifeLeech = () => {
         <label>
           Valor do{' '}
           <img
-            src="/images/piece-of-dead-brain.gif"
+            src={DeadBrain}
             alt="Piece of Dead Brain"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -109,7 +113,7 @@ const LifeLeech = () => {
         <p>
           Valor total usando{' '}
           <img
-            src="/images/gold-token.gif"
+            src={GoldToken}
             alt="Gold Token"
             style={{ verticalAlign: 'middle', marginRight: '5px' }}
           />
@@ -123,7 +127,7 @@ const LifeLeech = () => {
         </p>
       </div>
       <ul>
-        <Link to="/">Voltar para página inicial</Link>
+        <Link to="/imbuements-calculator">Voltar para página inicial</Link>
         <br></br>
         <Link to="/mana-leech">Mana Leech</Link>
         <br></br>
