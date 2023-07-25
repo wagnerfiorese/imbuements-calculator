@@ -2,17 +2,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: white;
 }
 
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f5f5f5; /* Cinza claro para o fundo */
-  color: #333; /* Cor do texto em tons de cinza mais escuro */
+  background-color: #6a1b9a;
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+input {
+  color: black;
+  border-radius: 4px;
 }
 
 .container {
@@ -63,28 +69,35 @@ body {
   margin-right: 0;
 }
 
+.horizontal-buttons {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+
 .title {
   margin-bottom: 20px;
   margin-top: -100px;
 }
 
-.title-life-leech {
+.title-vampirism {
   display: flex;
   text-align: center;
   margin-left: 70px;
-  color: rgba(196, 77, 86);
+  color: white;
 }
 
-.title-mana-leech {
+.title-void {
   display: flex;
   text-align: center;
   margin-left: 70px;
-  color: rgba(90, 34, 139, 0.8);
+  color: white;
 }
 
-.title-crit {
+.title-strike {
   margin-left: 120px;
-  color: rgba(217, 30, 24, 0.9);
+  color: white;
 }
 
 a {
@@ -97,31 +110,47 @@ a:visited {
   text-decoration: none;
 }
 
-.life-leech-index {
+.vampirism-index {
   font-size: 12px;
   display: flex;
   text-align: center;
-  margin-left: 4px;
+  margin-left: 2px;
   text-decoration: none;
-  color: rgba(196, 77, 86);
+  color: white;
   font-weight: bold;
 }
 
-.mana-leech-index {
+.void-index {
   font-size: 12px;
   display: flex;
+  margin-left: 20px;
   text-align: center;
   text-decoration: none;
-  color: rgba(90, 34, 139, 0.8);
+  color: white;
   font-weight: bold;
 }
 
-.crit-index {
+.strike-index {
   font-size: 12px;
   display: flex;
   text-align: center;
   text-decoration: none;
-  color: rgba(217, 30, 24, 0.9);
+  color: White;
   font-weight: bold;
-  margin-left: 21px;
+  margin-left: 14px;
+}
+
+button {
+  height: 20px;
+  width: 100px;
+  color: lightcyan;
+  font-weight: bold;
+  background-color: black;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.wagnerfiorese {
+  color: lightblue;
 }

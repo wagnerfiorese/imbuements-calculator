@@ -12,7 +12,7 @@ const LifeLeech = () => {
   const [deadBrainValue, setDeadBrainValue] = useState('');
 
   const formatNumberWithDots = (number) => {
-    return number.toLocaleString('pt-BR');
+    return number.toLocaleString('en-US');
   };
 
   const calculateGoldTokenTotal = () => {
@@ -42,15 +42,21 @@ const LifeLeech = () => {
 
   return (
     <div>
-      <h1 className="title-life-leech">Life Leech </h1>
+      <h1 className="title-vampirism">Vampirism (Life Leech) </h1>
       <div>
         <label>
-          Valor do{' '}
-          <img
-            src={GoldToken}
-            alt="Gold Token"
-            style={{ verticalAlign: 'middle', marginRight: '5px' }}
-          />
+          Gold Token value{' '}
+          <a
+            href="https://www.tibiawiki.com.br/wiki/Gold_Token"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={GoldToken}
+              alt="Gold Token"
+              style={{ verticalAlign: 'middle', marginRight: '5px' }}
+            />
+          </a>
           :
         </label>
         <input
@@ -61,12 +67,18 @@ const LifeLeech = () => {
       </div>
       <div>
         <label>
-          Valor do{' '}
-          <img
-            src={VampireTeeth}
-            alt="Vampire Teeth"
-            style={{ verticalAlign: 'middle', marginRight: '5px' }}
-          />
+          Vampire Teeth value{' '}
+          <a
+            href="https://www.tibiawiki.com.br/wiki/Vampire_Teeth"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={VampireTeeth}
+              alt="Vampire Teeth"
+              style={{ verticalAlign: 'middle', marginRight: '5px' }}
+            />
+          </a>
           :
         </label>
         <input
@@ -77,12 +89,18 @@ const LifeLeech = () => {
       </div>
       <div>
         <label>
-          Valor do{' '}
-          <img
-            src={BloodyPincers}
-            alt="Bloody Pincers"
-            style={{ verticalAlign: 'middle', marginRight: '5px' }}
-          />
+          Bloody Pincers value{' '}
+          <a
+            href="https://www.tibiawiki.com.br/wiki/Bloody_Pincers"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={BloodyPincers}
+              alt="Bloody Pincers"
+              style={{ verticalAlign: 'middle', marginRight: '5px' }}
+            />
+          </a>
           :
         </label>
         <input
@@ -93,12 +111,18 @@ const LifeLeech = () => {
       </div>
       <div>
         <label>
-          Valor do{' '}
-          <img
-            src={DeadBrain}
-            alt="Piece of Dead Brain"
-            style={{ verticalAlign: 'middle', marginRight: '5px' }}
-          />
+          Piece of Dead Brain value{' '}
+          <a
+            href="https://www.tibiawiki.com.br/wiki/Piece_of_Dead_Brain"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={DeadBrain}
+              alt="Piece of Dead Brain"
+              style={{ verticalAlign: 'middle', marginRight: '5px' }}
+            />
+          </a>
           :
         </label>
         <input
@@ -109,27 +133,39 @@ const LifeLeech = () => {
       </div>
       <div>
         <p>
-          Valor total usando{' '}
-          <img
-            src={GoldToken}
-            alt="Gold Token"
-            style={{ verticalAlign: 'middle', marginRight: '5px' }}
-          />
+          Total value using Gold Token{' '}
+          <a
+            href="https://www.tibiawiki.com.br/wiki/Gold_Token"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={GoldToken}
+              alt="Gold Token"
+              style={{ verticalAlign: 'middle', marginRight: '5px' }}
+            />
+          </a>
           : {formatNumberWithDots(calculateGoldTokenTotal())}
         </p>
         <p>
-          Valor total usando itens:{' '}
+          Total value using itens:{' '}
           {isNaN(calculateItemsTotal())
             ? ''
             : formatNumberWithDots(calculateItemsTotal())}
         </p>
       </div>
-      <ul>
-        <Link to="/imbuements-calculator">Voltar para página inicial</Link>
+      <ul className="horizontal-buttons">
+        <Link to="/imbuements-calculator">
+          <button>Home Page</button>
+        </Link>
         <br></br>
-        <Link to="/mana-leech">Mana Leech</Link>
+        <Link to="/void">
+          <button>Void</button>
+        </Link>
         <br></br>
-        <Link to="/crit">Crit</Link>
+        <Link to="/strike">
+          <button>Strike</button>
+        </Link>
       </ul>
     </div>
   );

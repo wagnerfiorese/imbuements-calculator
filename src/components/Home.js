@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LifeLeech from '../images/life-leech.gif';
-import ManaLeech from '../images/mana-leech.gif';
-import Crit from '../images/crit.gif';
+import Vampirism from '../images/vampirism.gif';
+import Void from '../images/void.gif';
+import Strike from '../images/strike.gif';
 
 const Home = () => {
   return (
@@ -10,36 +10,36 @@ const Home = () => {
       <h1 className="title">Imbuement Calculator</h1>
       <ul className="horizontal-links">
         <li>
-          <Link to="/life-leech">
+          <Link to="/vampirism">
             <img
-              src={LifeLeech}
-              alt="Life Leech"
+              src={Vampirism}
+              alt="Vampirism"
               style={{ verticalAlign: 'middle', marginRight: '5px' }}
             />
             <br></br>
-            <p className="life-leech-index">Life Leech</p>
+            <p className="vampirism-index">Vampirism</p>
           </Link>
         </li>
         <li>
-          <Link to="/mana-leech">
+          <Link to="/void">
             <img
-              src={ManaLeech}
-              alt="Mana Leech"
+              src={Void}
+              alt="Void"
               style={{ verticalAlign: 'middle', marginRight: '5px' }}
             />
             <br></br>
-            <p className="mana-leech-index">Mana Leech</p>
+            <p className="void-index">Void</p>
           </Link>
         </li>
         <li>
-          <Link to="/crit">
+          <Link to="/strike">
             <img
-              src={Crit}
-              alt="Crit"
+              src={Strike}
+              alt="Strike"
               style={{ verticalAlign: 'middle', marginRight: '5px' }}
             />
             <br></br>
-            <p className="crit-index">Crit</p>
+            <p className="strike-index">Strike</p>
           </Link>
         </li>
       </ul>
