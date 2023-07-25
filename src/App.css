@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5; /* Cinza claro para o fundo */
+  color: #333; /* Cor do texto em tons de cinza mais escuro */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.container input[type='number'] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.container p {
+  margin-top: 10px;
+}
+
+.container p:first-of-type {
+  color: #008000;
+}
+
+.container p:last-of-type {
+  color: #800000;
+}
+
+.horizontal-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.horizontal-links li {
+  margin-right: 20px;
+}
+
+.horizontal-links li:last-child {
+  margin-right: 0;
+}
+
+.title {
+  margin-bottom: 20px;
+  margin-top: -100px;
+}
+
+.title-life-leech {
+  display: flex;
+  text-align: center;
+  margin-left: 70px;
+  color: rgba(196, 77, 86);
+}
+
+.title-mana-leech {
+  display: flex;
+  text-align: center;
+  margin-left: 70px;
+  color: rgba(90, 34, 139, 0.8);
+}
+
+.title-crit {
+  margin-left: 120px;
+  color: rgba(217, 30, 24, 0.9);
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+.life-leech-index {
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  margin-left: 4px;
+  text-decoration: none;
+  color: rgba(196, 77, 86);
+  font-weight: bold;
+}
+
+.mana-leech-index {
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  color: rgba(90, 34, 139, 0.8);
+  font-weight: bold;
+}
+
+.crit-index {
+  font-size: 12px;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  color: rgba(217, 30, 24, 0.9);
+  font-weight: bold;
+  margin-left: 21px;
 }
