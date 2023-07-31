@@ -169,7 +169,7 @@ const Vampirism = () => {
             : {formatNumberWithDots(calculateGoldTokenTotal())}
           </p>
           <p>
-            Total value using itens:{' '}
+            Total value using items:{' '}
             {isNaN(calculateItemsTotal())
               ? ''
               : formatNumberWithDots(calculateItemsTotal())}
