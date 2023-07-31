@@ -3,12 +3,14 @@
   margin: 0;
   padding: 0;
   color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #6a1b9a;
+  background-color: black;
   color: #333;
   display: flex;
   justify-content: center;
@@ -23,8 +25,8 @@ input {
 
 .container {
   width: 400px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #6a1b9a;
+  border: 1px solid lightblue;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -46,14 +48,6 @@ input {
   margin-top: 10px;
 }
 
-.container p:first-of-type {
-  color: #008000;
-}
-
-.container p:last-of-type {
-  color: #800000;
-}
-
 .horizontal-links {
   display: flex;
   justify-content: center;
@@ -73,31 +67,32 @@ input {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  padding: 0;
+  margin: 0 10px;
 }
 
 .title {
   margin-bottom: 20px;
   margin-top: -100px;
+  color: lightblue;
 }
 
 .title-vampirism {
   display: flex;
   text-align: center;
-  margin-left: 70px;
-  color: white;
+  margin-left: 30px;
+  color: lightblue;
 }
 
 .title-void {
   display: flex;
   text-align: center;
   margin-left: 70px;
-  color: white;
+  color: lightblue;
 }
 
 .title-strike {
   margin-left: 120px;
-  color: white;
+  color: lightblue;
 }
 
 a {
@@ -149,8 +144,4 @@ button {
   border: 1px solid lightblue;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.wagnerfiorese {
-  color: lightblue;
 }

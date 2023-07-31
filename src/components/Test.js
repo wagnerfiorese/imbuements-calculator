@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoldToken from '../images/gold-token.gif';
 import VampireTeeth from '../images/vampire-teeth.gif';
 import BloodyPincers from '../images/bloody-pincers.gif';
 import DeadBrain from '../images/piece-of-dead-brain.gif';
 
-const Vampirism = () => {
+const LifeLeech = () => {
   const [goldTokenValue, setGoldTokenValue] = useState('');
   const [vampireTeethValue, setVampireTeethValue] = useState('');
   const [bloodyPincersValue, setBloodyPincersValue] = useState('');
   const [deadBrainValue, setDeadBrainValue] = useState('');
-
-  // Recuperar o valor do localStorage (se houver) quando a página for carregada
-  useEffect(() => {
-    const storedValue = localStorage.getItem('goldTokenValue');
-    if (storedValue) {
-      setGoldTokenValue(storedValue);
-    }
-  }, []);
-
-  // Salvar o valor no localStorage sempre que ele for alterado
-  useEffect(() => {
-    localStorage.setItem('goldTokenValue', goldTokenValue);
-  }, [goldTokenValue]);
 
   const formatNumberWithDots = (number) => {
     return number.toLocaleString('en-US');
@@ -37,6 +24,7 @@ const Vampirism = () => {
     const parsedVampireTeethValue = parseFloat(vampireTeethValue);
     const parsedBloodyPincersValue = parseFloat(bloodyPincersValue);
     const parsedDeadBrainValue = parseFloat(deadBrainValue);
+
     const allFieldsFilled =
       !isNaN(parsedVampireTeethValue) &&
       !isNaN(parsedBloodyPincersValue) &&
@@ -64,9 +52,16 @@ const Vampirism = () => {
 
   return (
     <>
-      <h1 className="title-vampirism">Vampirism (Life Leech) </h1>
+      <h1 className="title-vampirism">Vampirism (Life Leech) (TEST) </h1>
       <div className="container">
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: '10px',
+          }}
+        >
           <label>
             Gold Token value{' '}
             <a
@@ -88,7 +83,14 @@ const Vampirism = () => {
             onChange={(e) => setGoldTokenValue(e.target.value)}
           />
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: '10px',
+          }}
+        >
           <label>
             Vampire Teeth value{' '}
             <a
@@ -110,7 +112,14 @@ const Vampirism = () => {
             onChange={(e) => setVampireTeethValue(e.target.value)}
           />
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: '10px',
+          }}
+        >
           <label>
             Bloody Pincers value{' '}
             <a
@@ -132,7 +141,14 @@ const Vampirism = () => {
             onChange={(e) => setBloodyPincersValue(e.target.value)}
           />
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: '10px',
+          }}
+        >
           <label>
             Piece of Dead Brain value{' '}
             <a
@@ -153,7 +169,16 @@ const Vampirism = () => {
             value={deadBrainValue}
             onChange={(e) => setDeadBrainValue(e.target.value)}
           />
-          <p>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginBottom: '10px',
+          }}
+        >
+          <label>
             Total value using Gold Token{' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Gold_Token"
@@ -167,13 +192,13 @@ const Vampirism = () => {
               />
             </a>
             : {formatNumberWithDots(calculateGoldTokenTotal())}
-          </p>
-          <p>
+          </label>
+          <label>
             Total value using itens:{' '}
             {isNaN(calculateItemsTotal())
               ? ''
               : formatNumberWithDots(calculateItemsTotal())}
-          </p>
+          </label>
         </div>
         <div>
           <ul className="horizontal-buttons">
@@ -193,4 +218,4 @@ const Vampirism = () => {
   );
 };
 
-export default Vampirism;
+export default LifeLeech;

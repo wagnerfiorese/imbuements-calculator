@@ -5,6 +5,7 @@ import Vampirism from './components/Vampirism';
 import Void from './components/Void';
 import Strike from './components/Strike';
 import Footer from './components/Footer';
+import Test from './components/Test';
 import './App.css';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/vampirism" element={<Vampirism />} />
         <Route exact path="/void" element={<Void />} />
         <Route exact path="/strike" element={<Strike />} />
+        <Route exact path="/test" element={<Test />} />
       </Routes>
       <Footer />
     </Router>
