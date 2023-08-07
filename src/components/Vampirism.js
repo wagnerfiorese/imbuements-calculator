@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import VampireTeeth from '../images/vampire-teeth.gif';
 import BloodyPincers from '../images/bloody-pincers.gif';
 import DeadBrain from '../images/piece-of-dead-brain.gif';
 
 const Vampirism = () => {
-  const [goldTokenValue, setGoldTokenValue] = useState('');
+  const { goldTokenValue, setGoldTokenValue } = useAppContext();
   const [vampireTeethValue, setVampireTeethValue] = useState('');
   const [bloodyPincersValue, setBloodyPincersValue] = useState('');
   const [deadBrainValue, setDeadBrainValue] = useState('');
 
-  // Recuperar o valor do localStorage (se houver) quando a página for carregada
-  useEffect(() => {
+  useState(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);
     }
   }, []);
-
-  // Salvar o valor no localStorage sempre que ele for alterado
-  useEffect(() => {
-    localStorage.setItem('goldTokenValue', goldTokenValue);
-  }, [goldTokenValue]);
 
   const formatNumberWithDots = (number) => {
     return number.toLocaleString('en-US');
@@ -174,19 +168,6 @@ const Vampirism = () => {
               ? ''
               : formatNumberWithDots(calculateItemsTotal())}
           </p>
-        </div>
-        <div>
-          <ul className="horizontal-buttons">
-            <Link to="/imbuements-calculator">
-              <button>Home Page</button>
-            </Link>
-            <Link to="/void">
-              <button>Void</button>
-            </Link>
-            <Link to="/strike">
-              <button>Strike</button>
-            </Link>
-          </ul>
         </div>
       </div>
     </>

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import ProtectiveCharm from '../images/protective-charm.gif';
 import Sabretooth from '../images/sabretooth.gif';
 import VexclawTalon from '../images/vexclaw-talon.gif';
 
 const Strike = () => {
-  const [goldTokenValue, setGoldTokenValue] = useState('');
+  const { goldTokenValue, setGoldTokenValue } = useAppContext();
   const [ProtectiveCharmValue, setProtectiveCharmValue] = useState('');
   const [SabretoothValue, setSabretoothValue] = useState('');
   const [VexclawTalonValue, setVexclawTalonValue] = useState('');
@@ -173,17 +173,6 @@ const Strike = () => {
               : formatNumberWithDots(calculateItemsTotal())}
           </p>
         </div>
-        <ul className="horizontal-buttons">
-          <Link to="/imbuements-calculator">
-            <button>Home Page</button>
-          </Link>
-          <Link to="/vampirism">
-            <button>Vampirism</button>
-          </Link>
-          <Link to="/void">
-            <button>Void</button>
-          </Link>
-        </ul>
       </div>
     </>
   );

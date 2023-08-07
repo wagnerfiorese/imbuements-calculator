@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import RopeBelt from '../images/rope-belt.gif';
 import SilencerClaws from '../images/silencer-claws.gif';
 import GrimeleechWings from '../images/grimeleech-wings.gif';
 
 const Void = () => {
-  const [goldTokenValue, setGoldTokenValue] = useState('');
+  const { goldTokenValue, setGoldTokenValue } = useAppContext();
   const [RopeBeltValue, setRopeBeltValue] = useState('');
   const [SilencerClawsValue, setSilencerClawsValue] = useState('');
   const [GrimeleechWingsValue, setGrimeleechWingsValue] = useState('');
@@ -173,17 +173,6 @@ const Void = () => {
               : formatNumberWithDots(calculateItemsTotal())}
           </p>
         </div>
-        <ul className="horizontal-buttons">
-          <Link to="/imbuements-calculator">
-            <button>Home Page</button>
-          </Link>
-          <Link to="/vampirism">
-            <button>Vampirism</button>
-          </Link>
-          <Link to="/strike">
-            <button>Strike</button>
-          </Link>
-        </ul>
       </div>
     </>
   );

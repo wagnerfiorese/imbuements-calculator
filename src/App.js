@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AppProvider } from './components/AppContext';
 import Home from './components/Home';
 import Vampirism from './components/Vampirism';
 import Void from './components/Void';
@@ -10,16 +11,18 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/imbuements-calculator" element={<Home />} />
-        <Route exact path="/vampirism" element={<Vampirism />} />
-        <Route exact path="/void" element={<Void />} />
-        <Route exact path="/strike" element={<Strike />} />
-        <Route exact path="/test" element={<Test />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AppProvider>
+      <Router>
+        <Routes>
+          <Route exact path="/imbuements-calculator" element={<Home />} />
+          <Route exact path="/vampirism" element={<Vampirism />} />
+          <Route exact path="/void" element={<Void />} />
+          <Route exact path="/strike" element={<Strike />} />
+          <Route exact path="/test" element={<Test />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </AppProvider>
   );
 };
 
