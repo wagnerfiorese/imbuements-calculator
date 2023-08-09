@@ -64,7 +64,7 @@ const Void = () => {
       <div className="container">
         <div>
           <label>
-            Gold Token value{' '}
+            Gold Token value (6x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Gold_Token"
               target="_blank"
@@ -86,7 +86,7 @@ const Void = () => {
         </div>
         <div>
           <label>
-            Rope Belt value{' '}
+            Rope Belt value (25x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Rope_Belt"
               target="_blank"
@@ -108,7 +108,7 @@ const Void = () => {
         </div>
         <div>
           <label>
-            Silencer Claws value{' '}
+            Silencer Claws value (25x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Silencer_Claws"
               target="_blank"
@@ -130,7 +130,7 @@ const Void = () => {
         </div>
         <div>
           <label>
-            Grimeleech Wings value{' '}
+            Grimeleech Wings value (5x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Some_Grimeleech_Wings"
               target="_blank"
