@@ -62,7 +62,7 @@ const Vampirism = () => {
       <div className="container">
         <div>
           <label>
-            Gold Token value{' '}
+            Gold Token value (6x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Gold_Token"
               target="_blank"
@@ -84,7 +84,7 @@ const Vampirism = () => {
         </div>
         <div>
           <label>
-            Vampire Teeth value{' '}
+            Vampire Teeth value (25x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Vampire_Teeth"
               target="_blank"
@@ -106,7 +106,7 @@ const Vampirism = () => {
         </div>
         <div>
           <label>
-            Bloody Pincers value{' '}
+            Bloody Pincers value (15x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Bloody_Pincers"
               target="_blank"
@@ -128,7 +128,7 @@ const Vampirism = () => {
         </div>
         <div>
           <label>
-            Piece of Dead Brain value{' '}
+            Piece of Dead Brain value (5x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Piece_of_Dead_Brain"
               target="_blank"

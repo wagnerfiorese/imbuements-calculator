@@ -64,7 +64,7 @@ const Strike = () => {
       <div className="container">
         <div>
           <label>
-            Gold Token value{' '}
+            Gold Token value (6x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Gold_Token"
               target="_blank"
@@ -86,7 +86,7 @@ const Strike = () => {
         </div>
         <div>
           <label>
-            Protective Charm value{' '}
+            Protective Charm value (20x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Protective_Charm"
               target="_blank"
@@ -108,7 +108,7 @@ const Strike = () => {
         </div>
         <div>
           <label>
-            Sabretooth value{' '}
+            Sabretooth value (25x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Sabretooth_(Item)"
               target="_blank"
@@ -130,7 +130,7 @@ const Strike = () => {
         </div>
         <div>
           <label>
-            Vexclaw Talon value{' '}
+            Vexclaw Talon value (5x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Vexclaw_Talon"
               target="_blank"
