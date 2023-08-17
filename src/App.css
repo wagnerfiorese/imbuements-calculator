@@ -16,6 +16,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
+  padding: 0;
 }
 
 input {
@@ -34,14 +36,301 @@ button {
   cursor: pointer;
 }
 
+footer {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
 .container {
+  position: relative;
   width: 400px;
   background-color: #6a1b9a;
   border: 1px solid lightblue;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: -280px;
+  margin-bottom: -350px;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: 100vh;
+    width: 100%;
+  }
+
+  .index-buttons {
+    margin-left: 10px;
+  }
+
+  .container {
+    width: 80%;
+    margin-left: 45px;
+  }
+
+  footer.footer {
+    position: absolute;
+    bottom: 10;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  div.index-buttons {
+    width: 400px;
+    margin-top: -360px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+
+  ul.horizontal-links-first {
+    width: 100%;
+    margin-top: 110px;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 370px;
+    margin-left: 30px;
+  }
+
+  ul.horizontal-links-second {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 370px;
+    margin-left: 30px;
+  }
+
+  h1.title {
+    display: flex;
+    justify-content: center;
+    width: 270px;
+    font-size: 24px;
+    color: lightblue;
+  }
+
+  h1.title-slash {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-precision {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-epiphany {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-chop {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-blockade {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-bash {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-scorch {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-frost {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-venom {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-electrify {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-reap {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-snakeskin {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+    color: lightblue;
+  }
+
+  h1.title-quarascale {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 27px;
+    color: lightblue;
+  }
+
+  h1.title-lichshroud {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    color: lightblue;
+  }
+
+  h1.title-dragonhide {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    color: lightblue;
+  }
+
+  h1.title-demonpresence {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-cloudfabric {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-vampirism {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-void {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-strike {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-featherweight {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-swiftness {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
+
+  h1.title-vibrancy {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 2px;
+    color: lightblue;
+  }
 }
 
 .container label {
@@ -62,7 +351,7 @@ button {
 
 .index-buttons {
   width: 400px;
-  margin-top: -330px;
+  margin-top: -360px;
   margin-right: 30px;
   display: flex;
   justify-content: space-evenly;
@@ -77,9 +366,19 @@ button {
   margin-right: 0;
 }
 
-.horizontal-links {
-  width: 400px;
-  margin-top: 180px;
+.horizontal-links-first {
+  width: 100%;
+  margin-top: 110px;
+  margin-left: -15px;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.horizontal-links-second {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: -15px;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -108,8 +407,9 @@ button {
 }
 
 .title {
-  margin-top: -180px;
-  margin-left: 40px;
+  font-size: 24px;
+  margin-top: -140px;
+  margin-left: 80px;
   color: lightblue;
 }
 

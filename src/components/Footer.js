@@ -3,21 +3,7 @@ import Icon from '../images/icon.svg';
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        textAlign: 'center',
-        position: 'fixed',
-        bottom: '0',
-        left: '0',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '80px',
-        backgroundColor: 'black',
-        color: 'white',
-      }}
-    >
+    <footer className="footer">
       <p style={{ margin: '0' }}>
         Made with love, by{' '}
         <a
