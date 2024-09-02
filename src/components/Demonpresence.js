@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import CultishRobe from '../images/green-dragon-leather.gif';
-import CultishMask from '../images/blazing-bone.gif';
-import HellspawnTail from '../images/draken-sulphur.gif';
+import CultishRobe from '../images/cultish-robe.gif';
+import CultishMask from '../images/cultish-mask.gif';
+import HellspawnTail from '../images/hellspawn-tail.gif';
 
 const Demonpresence = () => {
   const [CultishRobeValue, setCultishRobeValue] = useState('');

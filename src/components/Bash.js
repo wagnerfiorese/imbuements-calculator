@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import CyclopsToe from '../images/piece-of-scarab-shell.gif';
-import OgreNose from '../images/brimstone-shell.gif';
-import WarmastersWristguards from '../images/frazzle-skin.gif';
+import CyclopsToe from '../images/cyclops-toe.gif';
+import OgreNose from '../images/ogre-nose-ring.gif';
+import WarmastersWristguards from '../images/warmasters-wristguards.gif';
 
 const Bash = () => {
   const [CyclopsToeValue, setCyclopsToeValue] = useState('');

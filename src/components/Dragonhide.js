@@ -94,7 +94,7 @@ const Dragonhide = () => {
         </div>
         <div>
           <label>
-            Mystical Hourglass value (5x){' '}
+            Draken Sulphur value (5x){' '}
             <a
               href="https://www.tibiawiki.com.br/wiki/Draken_Sulphur"
               target="_blank"
