@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Corrigido o uso de useEffect
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import RopeBelt from '../images/rope-belt.gif';
@@ -7,12 +7,12 @@ import GrimeleechWings from '../images/grimeleech-wings.gif';
 
 const Void = () => {
   const { goldTokenValue, setGoldTokenValue } = useAppContext();
-  const [RopeBeltValue, setRopeBeltValue] = useState('');
-  const [SilencerClawsValue, setSilencerClawsValue] = useState('');
-  const [GrimeleechWingsValue, setGrimeleechWingsValue] = useState('');
+  const [RopeBeltValue, setRopeBeltValue] = useState(0);
+  const [SilencerClawsValue, setSilencerClawsValue] = useState(0);
+  const [GrimeleechWingsValue, setGrimeleechWingsValue] = useState(0);
   const [calculated, setCalculated] = useState(false);
 
-  useEffect(() => {
+  useState(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);

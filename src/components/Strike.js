@@ -7,13 +7,13 @@ import VexclawTalon from '../images/vexclaw-talon.gif';
 
 const Strike = () => {
   const { goldTokenValue, setGoldTokenValue } = useAppContext();
-  const [ProtectiveCharmValue, setProtectiveCharmValue] = useState('');
-  const [SabretoothValue, setSabretoothValue] = useState('');
-  const [VexclawTalonValue, setVexclawTalonValue] = useState('');
+  const [ProtectiveCharmValue, setProtectiveCharmValue] = useState(0);
+  const [SabretoothValue, setSabretoothValue] = useState(0);
+  const [VexclawTalonValue, setVexclawTalonValue] = useState(0);
   const [calculated, setCalculated] = useState(false);
 
 
-  useEffect(() => {
+  useState(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);

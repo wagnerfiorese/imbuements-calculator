@@ -7,9 +7,9 @@ import DeadBrain from '../images/piece-of-dead-brain.gif';
 
 const Vampirism = () => {
   const { goldTokenValue, setGoldTokenValue } = useAppContext();
-  const [vampireTeethValue, setVampireTeethValue] = useState('');
-  const [bloodyPincersValue, setBloodyPincersValue] = useState('');
-  const [deadBrainValue, setDeadBrainValue] = useState('');
+  const [vampireTeethValue, setVampireTeethValue] = useState(0);
+  const [bloodyPincersValue, setBloodyPincersValue] = useState(0);
+  const [deadBrainValue, setDeadBrainValue] = useState(0);
   const [calculated, setCalculated] = useState(false);
 
   useEffect(() => {
