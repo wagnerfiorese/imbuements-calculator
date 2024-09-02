@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import RopeBelt from '../images/rope-belt.gif';
@@ -19,7 +19,7 @@ const Void = () => {
     }
   }, [setGoldTokenValue]);
 
-  useEffect(() => {
+  useState(() => {
     if (goldTokenValue && RopeBeltValue && SilencerClawsValue && GrimeleechWingsValue) {
       setCalculated(true);
     }

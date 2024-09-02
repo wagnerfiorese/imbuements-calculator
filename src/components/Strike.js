@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import ProtectiveCharm from '../images/protective-charm.gif';
@@ -20,7 +20,7 @@ const Strike = () => {
     }
   }, [setGoldTokenValue]);
 
-  useEffect(() => {
+  useState(() => {
     if (goldTokenValue && ProtectiveCharmValue && SabretoothValue && VexclawTalonValue) {
       setCalculated(true);
     }
