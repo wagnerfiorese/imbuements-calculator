@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import ProtectiveCharm from '../images/protective-charm.gif';
@@ -10,13 +10,21 @@ const Strike = () => {
   const [ProtectiveCharmValue, setProtectiveCharmValue] = useState('');
   const [SabretoothValue, setSabretoothValue] = useState('');
   const [VexclawTalonValue, setVexclawTalonValue] = useState('');
+  const [calculated, setCalculated] = useState(false);
 
-  useState(() => {
+
+  useEffect(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);
     }
-  }, []);
+  }, [setGoldTokenValue]);
+
+  useEffect(() => {
+    if (goldTokenValue && ProtectiveCharmValue && SabretoothValue && VexclawTalonValue) {
+      setCalculated(true);
+    }
+  }, [goldTokenValue, ProtectiveCharmValue, SabretoothValue, VexclawTalonValue]);
 
   const formatNumberWithDots = (number) => {
     return number.toLocaleString('en-US');
@@ -57,6 +65,12 @@ const Strike = () => {
 
     return totalItemsValue;
   };
+
+  const goldTokenTotal = calculateGoldTokenTotal();
+  const itemsTotal = calculateItemsTotal();
+  const comparisonMessage = goldTokenTotal > itemsTotal
+    ? "In this case, buying items from the market is a better option."
+    : "In this case, buying Gold Tokens is a better option.";
 
   return (
     <>
@@ -172,6 +186,11 @@ const Strike = () => {
               ? ''
               : formatNumberWithDots(calculateItemsTotal())}
           </p>
+          {calculated && (
+            <p>
+              <b>{comparisonMessage}</b>
+            </p>
+          )}
         </div>
       </div>
     </>

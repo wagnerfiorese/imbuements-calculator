@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import VampireTeeth from '../images/vampire-teeth.gif';
@@ -10,13 +10,20 @@ const Vampirism = () => {
   const [vampireTeethValue, setVampireTeethValue] = useState('');
   const [bloodyPincersValue, setBloodyPincersValue] = useState('');
   const [deadBrainValue, setDeadBrainValue] = useState('');
+  const [calculated, setCalculated] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);
     }
-  }, []);
+  }, [setGoldTokenValue]);
+
+  useEffect(() => {
+    if (goldTokenValue && vampireTeethValue && bloodyPincersValue && deadBrainValue) {
+      setCalculated(true);
+    }
+  }, [goldTokenValue, vampireTeethValue, bloodyPincersValue, deadBrainValue]);
 
   const formatNumberWithDots = (number) => {
     return number.toLocaleString('en-US');
@@ -55,6 +62,13 @@ const Vampirism = () => {
 
     return totalItemsValue;
   };
+
+  const goldTokenTotal = calculateGoldTokenTotal();
+  const itemsTotal = calculateItemsTotal();
+  const comparisonMessage = goldTokenTotal > itemsTotal
+    ? "In this case, buying items from the market is a better option."
+    : "In this case, buying Gold Tokens is a better option.";
+
 
   return (
     <>
@@ -164,10 +178,13 @@ const Vampirism = () => {
           </p>
           <p>
             Total value using items:{' '}
-            {isNaN(calculateItemsTotal())
-              ? ''
-              : formatNumberWithDots(calculateItemsTotal())}
+            {isNaN(calculateItemsTotal()) ? '' : formatNumberWithDots(calculateItemsTotal())}
           </p>
+          {calculated && (
+            <p>
+              <b>{comparisonMessage}</b>
+            </p>
+          )}
         </div>
       </div>
     </>

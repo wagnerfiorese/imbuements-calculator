@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Corrigido o uso de useEffect
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import RopeBelt from '../images/rope-belt.gif';
@@ -10,13 +10,20 @@ const Void = () => {
   const [RopeBeltValue, setRopeBeltValue] = useState('');
   const [SilencerClawsValue, setSilencerClawsValue] = useState('');
   const [GrimeleechWingsValue, setGrimeleechWingsValue] = useState('');
+  const [calculated, setCalculated] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);
     }
-  }, []);
+  }, [setGoldTokenValue]);
+
+  useEffect(() => {
+    if (goldTokenValue && RopeBeltValue && SilencerClawsValue && GrimeleechWingsValue) {
+      setCalculated(true);
+    }
+  }, [goldTokenValue, RopeBeltValue, SilencerClawsValue, GrimeleechWingsValue]);
 
   const formatNumberWithDots = (number) => {
     return number.toLocaleString('en-US');
@@ -24,7 +31,7 @@ const Void = () => {
 
   const calculateGoldTokenTotal = () => {
     const parsedGoldTokenValue = parseFloat(goldTokenValue);
-    return isNaN(parsedGoldTokenValue) ? '' : parsedGoldTokenValue * 6 + 150000;
+    return isNaN(parsedGoldTokenValue) ? 0 : parsedGoldTokenValue * 6 + 150000;
   };
 
   const calculateItemsTotal = () => {
@@ -57,6 +64,12 @@ const Void = () => {
 
     return totalItemsValue;
   };
+
+  const goldTokenTotal = calculateGoldTokenTotal();
+  const itemsTotal = calculateItemsTotal();
+  const comparisonMessage = goldTokenTotal > itemsTotal
+    ? "In this case, buying items from the market is a better option."
+    : "In this case, buying Gold Tokens is a better option.";
 
   return (
     <>
@@ -164,14 +177,17 @@ const Void = () => {
                 style={{ verticalAlign: 'middle', marginRight: '5px' }}
               />
             </a>
-            : {formatNumberWithDots(calculateGoldTokenTotal())}
+            : {formatNumberWithDots(goldTokenTotal)}
           </p>
           <p>
             Total value using items:{' '}
-            {isNaN(calculateItemsTotal())
-              ? ''
-              : formatNumberWithDots(calculateItemsTotal())}
+            {isNaN(itemsTotal) ? '' : formatNumberWithDots(itemsTotal)}
           </p>
+          {calculated && (
+            <p>
+              <b>{comparisonMessage}</b>
+            </p>
+          )}
         </div>
       </div>
     </>
