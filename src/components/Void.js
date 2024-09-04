@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import RopeBelt from '../images/rope-belt.gif';
@@ -12,14 +12,14 @@ const Void = () => {
   const [GrimeleechWingsValue, setGrimeleechWingsValue] = useState(0);
   const [calculated, setCalculated] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);
     }
   }, [setGoldTokenValue]);
 
-  useState(() => {
+  useEffect(() => {
     if (goldTokenValue && RopeBeltValue && SilencerClawsValue && GrimeleechWingsValue) {
       setCalculated(true);
     }

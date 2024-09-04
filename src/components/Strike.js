@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from './AppContext';
 import GoldToken from '../images/gold-token.gif';
 import ProtectiveCharm from '../images/protective-charm.gif';
@@ -12,15 +12,14 @@ const Strike = () => {
   const [VexclawTalonValue, setVexclawTalonValue] = useState(0);
   const [calculated, setCalculated] = useState(false);
 
-
-  useState(() => {
+  useEffect(() => {
     const storedValue = localStorage.getItem('goldTokenValue');
     if (storedValue) {
       setGoldTokenValue(storedValue);
     }
   }, [setGoldTokenValue]);
 
-  useState(() => {
+  useEffect(() => {
     if (goldTokenValue && ProtectiveCharmValue && SabretoothValue && VexclawTalonValue) {
       setCalculated(true);
     }
