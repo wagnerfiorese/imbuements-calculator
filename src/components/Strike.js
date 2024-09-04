@@ -7,23 +7,25 @@ import VexclawTalon from '../images/vexclaw-talon.gif';
 
 const Strike = () => {
   const { goldTokenValue, setGoldTokenValue } = useAppContext();
-  const [ProtectiveCharmValue, setProtectiveCharmValue] = useState(0);
-  const [SabretoothValue, setSabretoothValue] = useState(0);
-  const [VexclawTalonValue, setVexclawTalonValue] = useState(0);
+  const [protectiveCharmValue, setProtectiveCharmValue] = useState(0);
+  const [sabretoothValue, setSabretoothValue] = useState(0);
+  const [vexclawTalonValue, setVexclawTalonValue] = useState(0);
   const [calculated, setCalculated] = useState(false);
 
   useEffect(() => {
-    const storedValue = localStorage.getItem('goldTokenValue');
-    if (storedValue) {
-      setGoldTokenValue(storedValue);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedValue = localStorage.getItem('goldTokenValue');
+      if (storedValue) {
+        setGoldTokenValue(parseFloat(storedValue) || 0); // Converte para número
+      }
     }
   }, [setGoldTokenValue]);
 
   useEffect(() => {
-    if (goldTokenValue && ProtectiveCharmValue && SabretoothValue && VexclawTalonValue) {
+    if (goldTokenValue && protectiveCharmValue && sabretoothValue && vexclawTalonValue) {
       setCalculated(true);
     }
-  }, [goldTokenValue, ProtectiveCharmValue, SabretoothValue, VexclawTalonValue]);
+  }, [goldTokenValue, protectiveCharmValue, sabretoothValue, vexclawTalonValue]);
 
   const formatNumberWithDots = (number) => {
     return number.toLocaleString('en-US');
@@ -31,38 +33,19 @@ const Strike = () => {
 
   const calculateGoldTokenTotal = () => {
     const parsedGoldTokenValue = parseFloat(goldTokenValue);
-    return isNaN(parsedGoldTokenValue) ? '' : parsedGoldTokenValue * 6 + 150000;
+    return isNaN(parsedGoldTokenValue) ? 0 : parsedGoldTokenValue * 6 + 150000;
   };
 
   const calculateItemsTotal = () => {
-    const parsedProtectiveCharmValue = parseFloat(ProtectiveCharmValue);
-    const parsedSabretoothValue = parseFloat(SabretoothValue);
-    const parsedVexclawTalonValue = parseFloat(VexclawTalonValue);
-    const allFieldsFilled =
-      !isNaN(parsedProtectiveCharmValue) &&
-      !isNaN(parsedSabretoothValue) &&
-      !isNaN(parsedVexclawTalonValue);
+    const parsedProtectiveCharmValue = parseFloat(protectiveCharmValue);
+    const parsedSabretoothValue = parseFloat(sabretoothValue);
+    const parsedVexclawTalonValue = parseFloat(vexclawTalonValue);
 
-    const totalProtectiveCharmValue = isNaN(parsedProtectiveCharmValue)
-      ? 0
-      : parsedProtectiveCharmValue * 20;
-    const totalSabretoothValue = isNaN(parsedSabretoothValue)
-      ? 0
-      : parsedSabretoothValue * 25;
-    const totalVexclawTalonValue = isNaN(parsedVexclawTalonValue)
-      ? 0
-      : parsedVexclawTalonValue * 5;
+    const totalProtectiveCharmValue = isNaN(parsedProtectiveCharmValue) ? 0 : parsedProtectiveCharmValue * 20;
+    const totalSabretoothValue = isNaN(parsedSabretoothValue) ? 0 : parsedSabretoothValue * 25;
+    const totalVexclawTalonValue = isNaN(parsedVexclawTalonValue) ? 0 : parsedVexclawTalonValue * 5;
 
-    const totalItemsValue = allFieldsFilled
-      ? totalProtectiveCharmValue +
-        totalSabretoothValue +
-        totalVexclawTalonValue +
-        150000
-      : totalProtectiveCharmValue +
-        totalSabretoothValue +
-        totalVexclawTalonValue;
-
-    return totalItemsValue;
+    return totalProtectiveCharmValue + totalSabretoothValue + totalVexclawTalonValue + 150000;
   };
 
   const goldTokenTotal = calculateGoldTokenTotal();
@@ -94,7 +77,11 @@ const Strike = () => {
           <input
             type="number"
             value={goldTokenValue}
-            onChange={(e) => setGoldTokenValue(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              setGoldTokenValue(value);
+              localStorage.setItem('goldTokenValue', value);
+            }}
           />
         </div>
         <div>
@@ -115,7 +102,7 @@ const Strike = () => {
           </label>
           <input
             type="number"
-            value={ProtectiveCharmValue}
+            value={protectiveCharmValue}
             onChange={(e) => setProtectiveCharmValue(e.target.value)}
           />
         </div>
@@ -137,7 +124,7 @@ const Strike = () => {
           </label>
           <input
             type="number"
-            value={SabretoothValue}
+            value={sabretoothValue}
             onChange={(e) => setSabretoothValue(e.target.value)}
           />
         </div>
@@ -159,7 +146,7 @@ const Strike = () => {
           </label>
           <input
             type="number"
-            value={VexclawTalonValue}
+            value={vexclawTalonValue}
             onChange={(e) => setVexclawTalonValue(e.target.value)}
           />
         </div>
@@ -177,13 +164,11 @@ const Strike = () => {
                 style={{ verticalAlign: 'middle', marginRight: '5px' }}
               />
             </a>
-            : {formatNumberWithDots(calculateGoldTokenTotal())}
+            : {formatNumberWithDots(goldTokenTotal)}
           </p>
           <p>
             Total value using items:{' '}
-            {isNaN(calculateItemsTotal())
-              ? ''
-              : formatNumberWithDots(calculateItemsTotal())}
+            {isNaN(itemsTotal) ? '' : formatNumberWithDots(itemsTotal)}
           </p>
           {calculated && (
             <p>

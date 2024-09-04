@@ -13,9 +13,11 @@ const Void = () => {
   const [calculated, setCalculated] = useState(false);
 
   useEffect(() => {
-    const storedValue = localStorage.getItem('goldTokenValue');
-    if (storedValue) {
-      setGoldTokenValue(storedValue);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedValue = localStorage.getItem('goldTokenValue');
+      if (storedValue) {
+        setGoldTokenValue(parseFloat(storedValue) || 0);
+      }
     }
   }, [setGoldTokenValue]);
 
@@ -30,39 +32,15 @@ const Void = () => {
   };
 
   const calculateGoldTokenTotal = () => {
-    const parsedGoldTokenValue = parseFloat(goldTokenValue);
-    return isNaN(parsedGoldTokenValue) ? 0 : parsedGoldTokenValue * 6 + 150000;
+    return goldTokenValue * 6 + 150000;
   };
 
   const calculateItemsTotal = () => {
-    const parsedRopeBeltValue = parseFloat(RopeBeltValue);
-    const parsedSilencerClawsValue = parseFloat(SilencerClawsValue);
-    const parsedGrimeleechWingsValue = parseFloat(GrimeleechWingsValue);
-    const allFieldsFilled =
-      !isNaN(parsedRopeBeltValue) &&
-      !isNaN(parsedSilencerClawsValue) &&
-      !isNaN(parsedGrimeleechWingsValue);
+    const totalRopeBeltValue = RopeBeltValue * 25;
+    const totalSilencerClawsValue = SilencerClawsValue * 25;
+    const totalGrimeleechWingsValue = GrimeleechWingsValue * 5;
 
-    const totalRopeBeltValue = isNaN(parsedRopeBeltValue)
-      ? 0
-      : parsedRopeBeltValue * 25;
-    const totalSilencerClawsValue = isNaN(parsedSilencerClawsValue)
-      ? 0
-      : parsedSilencerClawsValue * 25;
-    const totalGrimeleechWingsValue = isNaN(parsedGrimeleechWingsValue)
-      ? 0
-      : parsedGrimeleechWingsValue * 5;
-
-    const totalItemsValue = allFieldsFilled
-      ? totalRopeBeltValue +
-        totalSilencerClawsValue +
-        totalGrimeleechWingsValue +
-        150000
-      : totalRopeBeltValue +
-        totalSilencerClawsValue +
-        totalGrimeleechWingsValue;
-
-    return totalItemsValue;
+    return totalRopeBeltValue + totalSilencerClawsValue + totalGrimeleechWingsValue + 150000;
   };
 
   const goldTokenTotal = calculateGoldTokenTotal();
@@ -94,7 +72,11 @@ const Void = () => {
           <input
             type="number"
             value={goldTokenValue}
-            onChange={(e) => setGoldTokenValue(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              setGoldTokenValue(value);
+              localStorage.setItem('goldTokenValue', value);
+            }}
           />
         </div>
         <div>

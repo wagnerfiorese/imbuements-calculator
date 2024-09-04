@@ -13,9 +13,11 @@ const Vampirism = () => {
   const [calculated, setCalculated] = useState(false);
 
   useEffect(() => {
-    const storedValue = localStorage.getItem('goldTokenValue');
-    if (storedValue) {
-      setGoldTokenValue(storedValue);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedValue = localStorage.getItem('goldTokenValue');
+      if (storedValue) {
+        setGoldTokenValue(parseFloat(storedValue) || 0); // Converte para número
+      }
     }
   }, [setGoldTokenValue]);
 
@@ -31,36 +33,19 @@ const Vampirism = () => {
 
   const calculateGoldTokenTotal = () => {
     const parsedGoldTokenValue = parseFloat(goldTokenValue);
-    return isNaN(parsedGoldTokenValue) ? '' : parsedGoldTokenValue * 6 + 150000;
+    return isNaN(parsedGoldTokenValue) ? 0 : parsedGoldTokenValue * 6 + 150000;
   };
 
   const calculateItemsTotal = () => {
     const parsedVampireTeethValue = parseFloat(vampireTeethValue);
     const parsedBloodyPincersValue = parseFloat(bloodyPincersValue);
     const parsedDeadBrainValue = parseFloat(deadBrainValue);
-    const allFieldsFilled =
-      !isNaN(parsedVampireTeethValue) &&
-      !isNaN(parsedBloodyPincersValue) &&
-      !isNaN(parsedDeadBrainValue);
+    
+    const totalVampireTeethValue = isNaN(parsedVampireTeethValue) ? 0 : parsedVampireTeethValue * 25;
+    const totalBloodyPincersValue = isNaN(parsedBloodyPincersValue) ? 0 : parsedBloodyPincersValue * 15;
+    const totalDeadBrainValue = isNaN(parsedDeadBrainValue) ? 0 : parsedDeadBrainValue * 5;
 
-    const totalVampireTeethValue = isNaN(parsedVampireTeethValue)
-      ? 0
-      : parsedVampireTeethValue * 25;
-    const totalBloodyPincersValue = isNaN(parsedBloodyPincersValue)
-      ? 0
-      : parsedBloodyPincersValue * 15;
-    const totalDeadBrainValue = isNaN(parsedDeadBrainValue)
-      ? 0
-      : parsedDeadBrainValue * 5;
-
-    const totalItemsValue = allFieldsFilled
-      ? totalVampireTeethValue +
-        totalBloodyPincersValue +
-        totalDeadBrainValue +
-        150000
-      : totalVampireTeethValue + totalBloodyPincersValue + totalDeadBrainValue;
-
-    return totalItemsValue;
+    return totalVampireTeethValue + totalBloodyPincersValue + totalDeadBrainValue + 150000;
   };
 
   const goldTokenTotal = calculateGoldTokenTotal();
@@ -69,10 +54,9 @@ const Vampirism = () => {
     ? "In this case, buying items from the market is a better option."
     : "In this case, buying Gold Tokens is a better option.";
 
-
   return (
     <>
-      <h1 className="title-vampirism">Vampirism (Life Leech) </h1>
+      <h1 className="title-vampirism">Vampirism (Life Leech)</h1>
       <div className="container">
         <div>
           <label>
@@ -93,7 +77,11 @@ const Vampirism = () => {
           <input
             type="number"
             value={goldTokenValue}
-            onChange={(e) => setGoldTokenValue(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              setGoldTokenValue(value);
+              localStorage.setItem('goldTokenValue', value);
+            }}
           />
         </div>
         <div>
@@ -161,6 +149,8 @@ const Vampirism = () => {
             value={deadBrainValue}
             onChange={(e) => setDeadBrainValue(e.target.value)}
           />
+        </div>
+        <div>
           <p>
             Total value using Gold Token{' '}
             <a
@@ -174,11 +164,11 @@ const Vampirism = () => {
                 style={{ verticalAlign: 'middle', marginRight: '5px' }}
               />
             </a>
-            : {formatNumberWithDots(calculateGoldTokenTotal())}
+            : {formatNumberWithDots(goldTokenTotal)}
           </p>
           <p>
             Total value using items:{' '}
-            {isNaN(calculateItemsTotal()) ? '' : formatNumberWithDots(calculateItemsTotal())}
+            {isNaN(itemsTotal) ? '' : formatNumberWithDots(itemsTotal)}
           </p>
           {calculated && (
             <p>
